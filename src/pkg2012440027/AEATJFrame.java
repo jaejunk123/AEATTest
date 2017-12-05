@@ -145,7 +145,11 @@ public class AEATJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //함수명 : sendMessage
+    //입력 : String
+    //출력 : 없음
+    //message를 입력으로 받아 ActiveMQProducer를 이용해 message를 전달한다
     private void sendMessage(String message) {
         try {
             ActiveMQProducer producer = new ActiveMQProducer(MQ_ADDRESS);
@@ -184,7 +188,11 @@ public class AEATJFrame extends javax.swing.JFrame {
         
         mainPanel2.loadAEAT(aeat); //MainPanel class의 loadAEAT method 호출
     }//GEN-LAST:event_loadOnClick
-
+    
+    //함수명 : aeatToXml
+    //입력 : AEATType
+    //출력 : String
+    //xml 데이터를 string으로 convert
     public static String aeatToXml(AEATType aeat) {
         String result = "";
         try {
@@ -203,6 +211,10 @@ public class AEATJFrame extends javax.swing.JFrame {
         return result;
     }
     
+    //함수명 : stringToAEAT
+    //입력 : String
+    //출력 : 없음
+    //입력으로 받은 string을 xml로 변환
     public void stringToAEAT(String receivedString) {
         AEATType aeat = null;
         try {
@@ -216,6 +228,10 @@ public class AEATJFrame extends javax.swing.JFrame {
         }
     }
     
+    //함수명 : sendOnClicked
+    //입력 : ActionEvent
+    //출력 : 없음
+    //send 버튼을 눌렀을 때의 동작, xml을 message로 보냄
     private void sendOnClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendOnClicked
 //        // TODO add your handling code here:
         try {
@@ -235,6 +251,10 @@ public class AEATJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_sendOnClicked
 
+    //함수명 : reveiveMessage
+    //입력 : 없음
+    //출력 : 없음
+    //메세지를 받았을 때 받은 메세지를 화면에 출력
     private void receiveMessage() {
         ActiveMQConsumer consumer = new ActiveMQConsumer();
         try {
@@ -283,6 +303,10 @@ public class AEATJFrame extends javax.swing.JFrame {
         }
     }
     
+    //함수명 : setMessageToTextArea
+    //입력 : String
+    //출력 : 없음
+    //mainPanel에게 메세지를 전달하여 화면에 message가 출력 되도록 한다
     public void setMessageToTextArea(String message) {
         mainPanel2.setMessageToMessagePanel(message);
     }
